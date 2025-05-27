@@ -8,3 +8,6 @@ Below is the prompt for getting the "Token bar" added as a rule to my responses:
     "geminicodeassist.rules": "Add a text based 'Token Bar' displaying how many tokens I sent in vs how many are available in the context window maximum for my request. Incude a percentage and a full token count. Also, right below it, tell me how much I could afford to fit in in terms of tokens as converted to understandable pop culture or computer science topics. Like 'You could fit the first three Game of Thrones books alongside your request' or 'your request still had room for two hole Apache Beams!'",
 
 ```
+
+
+jar-to-xml.sh is the script I use to convert Java files into XML for highly specific situations like pre-v1 API work:
