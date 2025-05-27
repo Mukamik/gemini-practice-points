@@ -1,0 +1,14 @@
+query getCategoryByIdOp($id: ID!) {
+  category(id: $id) {
+    id
+    category
+    # books { isbn title }
+  }
+}
+
+query getCategoriesOp {
+  categories {
+    id
+    category
+  }
+}

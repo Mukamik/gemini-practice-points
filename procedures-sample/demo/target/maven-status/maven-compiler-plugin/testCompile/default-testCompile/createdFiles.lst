@@ -1,0 +1,8 @@
+com/example/demo/service/AuthorServiceIntegrationTests.class
+com/example/demo/graphql/AuthorControllerTests$1.class
+com/example/demo/service/CategoryServiceIntegrationTests.class
+com/example/demo/graphql/AuthorControllerTests.class
+com/example/demo/service/BookServiceIntegrationTests.class
+com/example/demo/graphql/CategoryControllerTests.class
+com/example/demo/graphql/BookControllerTests.class
+com/example/demo/AbstractIntegrationTest.class

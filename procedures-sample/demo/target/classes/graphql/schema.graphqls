@@ -1,0 +1,87 @@
+type Author {
+    id: ID!
+    firstname: String!
+    surname: String!
+    surname2: String
+    books: [Book!]
+}
+
+type Book {
+    isbn: ID!
+    title: String!
+    pages: Int
+    year: Int
+    category: Category
+    authors: [Author!]
+}
+
+type Category {
+    id: ID!
+    category: String!
+    books: [Book!]
+}
+
+input AuthorInput {
+    firstname: String!
+    surname: String!
+    surname2: String
+}
+
+input BookInput {
+    isbn: ID!
+    title: String!
+    pages: Int
+    year: Int
+    categoryId: ID
+    authorIds: [ID!] = [] # Default to empty list
+}
+
+input UpdateBookInput {
+    title: String
+    pages: Int
+    year: Int
+    categoryId: ID
+    authorIds: [ID!] # If provided, replaces the existing set of authors
+}
+
+input CategoryInput {
+    category: String!
+}
+
+type Query {
+    authors(firstname: String, surname: String): [Author!]
+    author(id: ID!): Author
+
+    books(isbn: String, title: String): [Book!]
+    book(isbn: ID!): Book
+
+    categories: [Category!]
+    category(id: ID!): Category
+}
+
+type Mutation {
+    addAuthor(author: AuthorInput!): Author
+    updateAuthor(id: ID!, author: AuthorInput!): Author
+    deleteAuthor(id: ID!): Boolean
+
+    addBook(book: BookInput!): Book
+    updateBook(isbn: ID!, book: UpdateBookInput!): Book
+    deleteBook(isbn: ID!): Boolean
+
+    addCategory(category: CategoryInput!): Category
+    updateCategory(id: ID!, category: CategoryInput!): Category
+    deleteCategory(id: ID!): Boolean
+
+    linkAuthorToBook(authorId: ID!, isbn: ID!): Book
+    unlinkAuthorFromBook(authorId: ID!, isbn: ID!): Book
+}
+
+# For handling multiple authors in BookInput and UpdateBookInput
+# The authorIds field will be used to link existing authors.
+# The original usp_add_authorbook_storebook is covered by linkAuthorToBook
+# or by providing authorIds when creating/updating a book.
+
+# The original usp_modified_authorbook_storebook is not directly translated
+# due to its ambiguous and potentially destructive behavior.
+# Managing book-author links via linkAuthorToBook, unlinkAuthorFromBook,
+# and the authorIds field in BookInput/UpdateBookInput provides clearer control.

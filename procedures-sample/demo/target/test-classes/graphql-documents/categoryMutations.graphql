@@ -1,0 +1,17 @@
+mutation addCategoryOp($input: CategoryInput!) {
+  addCategory(category: $input) {
+    id
+    category
+  }
+}
+
+mutation updateCategoryOp($id: ID!, $input: CategoryInput!) {
+  updateCategory(id: $id, category: $input) {
+    id
+    category
+  }
+}
+
+mutation deleteCategoryOp($id: ID!) {
+  deleteCategory(id: $id)
+}

@@ -1,0 +1,22 @@
+# src/test/resources/graphql-documents/authorMutations.graphql
+mutation addAuthorOp($input: AuthorInput!) {
+  addAuthor(author: $input) {
+    id
+    firstname
+    surname
+    surname2
+  }
+}
+
+mutation updateAuthorOp($id: ID!, $input: AuthorInput!) {
+  updateAuthor(id: $id, author: $input) {
+    id
+    firstname
+    surname
+    surname2
+  }
+}
+
+mutation deleteAuthorOp($id: ID!) {
+  deleteAuthor(id: $id)
+}

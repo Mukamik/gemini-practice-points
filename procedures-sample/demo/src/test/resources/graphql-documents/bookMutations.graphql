@@ -1,0 +1,51 @@
+mutation addBookOp($input: BookInput!) {
+  addBook(book: $input) {
+    isbn
+    title
+    pages
+    year
+    category {
+      id
+      category
+    }
+    authors {
+      id
+      firstname
+    }
+  }
+}
+
+mutation updateBookOp($isbn: ID!, $input: UpdateBookInput!) {
+  updateBook(isbn: $isbn, book: $input) {
+    isbn
+    title
+    pages
+    year
+     category {
+      id
+      category
+    }
+    authors {
+      id
+      firstname
+    }
+  }
+}
+
+mutation deleteBookOp($isbn: ID!) {
+  deleteBook(isbn: $isbn)
+}
+
+mutation linkAuthorToBookOp($authorId: ID!, $isbn: ID!) {
+  linkAuthorToBook(authorId: $authorId, isbn: $isbn) {
+    isbn
+    authors { id firstname }
+  }
+}
+
+mutation unlinkAuthorFromBookOp($authorId: ID!, $isbn: ID!) {
+  unlinkAuthorFromBook(authorId: $authorId, isbn: $isbn) {
+    isbn
+    authors { id firstname }
+  }
+}

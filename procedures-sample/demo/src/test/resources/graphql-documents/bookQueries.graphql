@@ -1,0 +1,24 @@
+query getBookByIsbnOp($isbn: ID!) {
+  book(isbn: $isbn) {
+    isbn
+    title
+    pages
+    year
+    category {
+      id
+      category
+    }
+    authors {
+      id
+      firstname
+      surname
+    }
+  }
+}
+
+query getBooksOp($isbn: String, $title: String) {
+  books(isbn: $isbn, title: $title) {
+    isbn
+    title
+  }
+}

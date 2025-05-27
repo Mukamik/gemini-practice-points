@@ -1,0 +1,18 @@
+# src/test/resources/graphql-documents/authorQueries.graphql
+query getAuthorByIdOp($id: ID!) {
+  author(id: $id) {
+    id
+    firstname
+    surname
+    surname2
+    # books { isbn title } # Example of fetching related data
+  }
+}
+
+query getAuthorsOp($firstname: String, $surname: String) {
+  authors(firstname: $firstname, surname: $surname) {
+    id
+    firstname
+    surname
+  }
+}
