@@ -25,11 +25,11 @@ var villains = [];
 
 ```typescript
 // GOOD
-const heroes = [];
-let activeHero: Hero;
+const add = (a: number, b: number) => a + b;
+const greet = (name: string) => `Hello, ${name}!`;
 
 // AVOID
-var villains = [];
+const multiply = (a: number, b: number) => { return a * b; };
 ```
 
 ### 3. Function Definition Preference
